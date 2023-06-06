@@ -1,10 +1,7 @@
 package com.jwm.lexipol;
 
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.sleuth.instrument.async.LazyTraceExecutor;
@@ -17,8 +14,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 @EnableAsync
 public class LexipolApplication {
 
-  @Autowired
-  private BeanFactory beanFactory;
+  private final BeanFactory beanFactory;
+
+  public LexipolApplication(final BeanFactory beanFactory) {
+    this.beanFactory = beanFactory;
+  }
 
 
   public static void main(String[] args) {

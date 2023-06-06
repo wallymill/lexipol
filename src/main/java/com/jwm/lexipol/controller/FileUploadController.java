@@ -16,7 +16,7 @@ public class FileUploadController {
 
   Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
-  private FileUploadService fileUploadService;
+  private final FileUploadService fileUploadService;
 
   public FileUploadController(final FileUploadService fileUploadService) {
     this.fileUploadService = fileUploadService;
